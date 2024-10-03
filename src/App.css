@@ -27,12 +27,13 @@
 .App-link {
   color: #61dafb;
 }
+h1 {
+  padding: 20px 0;
+  margin: 0;
+}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.newsitem {
+  width: 100%;
+  height: auto;
 }

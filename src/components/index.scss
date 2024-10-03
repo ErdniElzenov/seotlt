@@ -1,0 +1,59 @@
+.newsform {
+    width: 100%;
+    display: flex;
+    gap: 2px;
+    &__input {
+        width: 100%;
+    }
+    &__button {
+        width: 140px ;
+        height: 86px;
+        font-size: medium;
+        font-weight: 700;
+    }
+  
+}
+.newsitem {
+    position: relative;
+    margin: 2px 0;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(199, 197, 197);
+    border-radius: 7px;
+    width: 99.8%;
+    min-height: 100px;
+    display: flex;
+    &__content {
+        width: 70%;
+        text-align: left;
+        padding: 0 10px;
+    }
+    h3 {
+        margin: 0;
+    }
+
+    &__settings {
+        width: 30%;
+        font-size: 30px;
+        padding-right: 10px;
+        text-align: right;
+        &--point {
+            cursor: pointer;
+        }
+    }
+    &__menu {
+        position: absolute;
+        top: 32px;
+        right: 35px;
+        font-size: 14px;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        &--item {
+            padding: 5px 10px;
+          cursor: pointer;
+        }
+        &--item:hover {
+          background-color: #f1f2f3;
+        }
+      }
+}
