@@ -7,9 +7,7 @@ const Home = () => {
     <div className="home">
       <div className="home__intro"></div>
       <div className="wrapper">
-        <div className="home__content"> 
-        <NewsList />
-        </div>
+        <NewsList />  
       </div>
     </div>
   );
