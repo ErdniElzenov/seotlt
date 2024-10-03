@@ -16,13 +16,19 @@ const NewsItem: React.FC<NewsItemProps> = ({ news, onDelete, onEdit }) => {
   const [showContextMenu, setShowContextMenu] = useState(false);
 
   const menuRef = useRef<HTMLDivElement>(null);
+  const pointRef = useRef<HTMLDivElement>(null);
 
   const handleClick = () => {
-    setShowContextMenu((prev) => !prev);
+    setShowContextMenu(true);
   };
 
   const handleOutsideClick = (event: MouseEvent) => {
-    if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+    if (
+      menuRef.current &&
+      !menuRef.current.contains(event.target as Node) &&
+      pointRef.current &&
+      !pointRef.current.contains(event.target as Node)
+    ) {
       setShowContextMenu(false);
     }
   };
@@ -72,12 +78,16 @@ const NewsItem: React.FC<NewsItemProps> = ({ news, onDelete, onEdit }) => {
           </div>
 
           <div className="newsitem__settings">
-            <div className="newsitem__settings--point" onClick={handleClick}>
+            <div
+              className="newsitem__settings--point"
+              ref={pointRef}
+              onClick={handleClick}
+            >
               ...
             </div>
 
             {showContextMenu ? (
-              <div className="newsitem__menu">
+              <div className="newsitem__menu" ref={menuRef}>
                 <div className="newsitem__menu--item" onClick={handleEditItem}>
                   edit
                 </div>
