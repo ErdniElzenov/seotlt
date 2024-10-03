@@ -11,7 +11,11 @@
         font-size: medium;
         font-weight: 700;
     }
-  
+    @media (max-width: 800px) {
+        &__button {
+        font-size: 14px;
+        }
+    }
 }
 .newsitem {
     position: relative;
@@ -56,4 +60,5 @@
           background-color: #f1f2f3;
         }
       }
+     
 }
