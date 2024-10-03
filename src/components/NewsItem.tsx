@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { News } from "../types/News";
 import { Button, Input } from "antd";
 import TextArea from "antd/es/input/TextArea";
@@ -15,14 +15,14 @@ const NewsItem: React.FC<NewsItemProps> = ({ news, onDelete, onEdit }) => {
   const [content, setContent] = useState(news.content);
   const [showContextMenu, setShowContextMenu] = useState(false);
 
-  const handleClick = (event: any) => {
-    event.preventDefault();
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  const handleClick = () => {
     setShowContextMenu((prev) => !prev);
   };
 
-  const handleOutsideClick = (event: any) => {
-    const menu = document.querySelector(".newsitem__menu--point");
-    if (menu && !menu.contains(event.target)) {
+  const handleOutsideClick = (event: MouseEvent) => {
+    if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
       setShowContextMenu(false);
     }
   };
@@ -34,12 +34,12 @@ const NewsItem: React.FC<NewsItemProps> = ({ news, onDelete, onEdit }) => {
 
   const handleEditItem = () => {
     setIsEditing(true);
-    setShowContextMenu(false); // Close the menu when editing starts
+    setShowContextMenu(false);
   };
 
   const handleDeleteItem = () => {
     onDelete(news.id);
-    setShowContextMenu(false); // Close the menu after deletion
+    setShowContextMenu(false);
   };
 
   useEffect(() => {

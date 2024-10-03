@@ -11,11 +11,6 @@
         font-size: medium;
         font-weight: 700;
     }
-    @media (max-width: 800px) {
-        &__button {
-        font-size: 14px;
-        }
-    }
 }
 .newsitem {
     position: relative;
@@ -38,11 +33,13 @@
 
     &__settings {
         width: 10%;
-        font-size: 30px;
         padding-right: 10px;
         text-align: right;
         &--point {
             cursor: pointer;
+            font-size: 20px;
+            margin: 0;
+            padding: 0;
         }
     }
 
