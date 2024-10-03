@@ -6,7 +6,7 @@
         width: 100%;
     }
     &__button {
-        width: 140px ;
+        min-width: 120px ;
         height: 86px;
         font-size: medium;
         font-weight: 700;
@@ -26,8 +26,9 @@
     width: 99.8%;
     min-height: 100px;
     display: flex;
+    gap: 2px;
     &__content {
-        width: 70%;
+        width: 90%;
         text-align: left;
         padding: 0 10px;
     }
@@ -36,7 +37,7 @@
     }
 
     &__settings {
-        width: 30%;
+        width: 10%;
         font-size: 30px;
         padding-right: 10px;
         text-align: right;
@@ -44,21 +45,57 @@
             cursor: pointer;
         }
     }
+
+    &__settingsmob {
+        display: none;
+    }
     &__menu {
         position: absolute;
         top: 32px;
         right: 35px;
-        font-size: 14px;
+        font-size: 16px;
         background-color: #fff;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         z-index: 1000;
         &--item {
+
+            text-align: center;
             padding: 5px 10px;
           cursor: pointer;
         }
         &--item:hover {
           background-color: #f1f2f3;
+          
         }
       }
      
+}
+
+@media (max-width: 800px) {
+    .newsitem {
+
+        &__settings {
+            display: none;
+        } 
+       &__settingsmob {
+        display: block;
+
+        text-align: right;
+        padding: 0 2px;
+       }
+        &__buttonmob {
+            width: 118px;
+            height: 43px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-top: 2px;
+
+        }
+        &__content {
+            width: 100%;
+            text-align: left;
+            padding: 0 10px;
+        }
+    }
+
 }

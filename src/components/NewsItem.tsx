@@ -70,22 +70,33 @@ const NewsItem: React.FC<NewsItemProps> = ({ news, onDelete, onEdit }) => {
             <h3>{title}</h3>
             <p>{content}</p>
           </div>
-          <div className="newsitem__settings" onClick={handleClick}>
-            <div className="newsitem__settings--point">...</div>
+
+          <div className="newsitem__settings">
+            <div className="newsitem__settings--point" onClick={handleClick}>
+              ...
+            </div>
 
             {showContextMenu ? (
               <div className="newsitem__menu">
                 <div className="newsitem__menu--item" onClick={handleEditItem}>
-                  Изменить
+                  edit
                 </div>
                 <div
                   className="newsitem__menu--item"
                   onClick={handleDeleteItem}
                 >
-                  Удалить
+                  delete
                 </div>
               </div>
             ) : null}
+          </div>
+          <div className="newsitem__settingsmob">
+            <Button className="newsitem__buttonmob" onClick={handleEditItem}>
+              Edit
+            </Button>
+            <Button className="newsitem__buttonmob" onClick={handleDeleteItem}>
+              Delete
+            </Button>
           </div>
         </div>
       )}
